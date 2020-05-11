@@ -1,2 +1,2 @@
-# imergency-latest
-Latest imergency
+# imergency
+This is our final project for mobile programming course.
