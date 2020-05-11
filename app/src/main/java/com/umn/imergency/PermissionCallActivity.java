@@ -59,7 +59,6 @@ public class PermissionCallActivity extends AppCompatActivity {
                 if(ActivityCompat.checkSelfPermission(PermissionCallActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
                     Intent startNewActivity = new Intent(PermissionCallActivity.this, PermissionLocationActivity.class);
                     startActivity(startNewActivity);
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
                 else{

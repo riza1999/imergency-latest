@@ -1,6 +1,8 @@
 package com.umn.imergency;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -8,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(">>>>", "KELUAR");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -36,9 +41,23 @@ public class MainActivity extends AppCompatActivity {
 //                .setDrawerLayout(drawer)
 //                .build();
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_tombol_darurat)
+                R.id.nav_tombol_darurat, R.id.nav_first_aid)
                 .setDrawerLayout(drawer)
                 .build();
+
+        // Gabisa berubah / kepanggil. Udah coba pake implements sama override juga.
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Log.d(">>>", "TES");
+                int id = menuItem.getItemId();
+
+                boolean tes = id == R.id.nav_first_aid;
+
+                Log.d(">>>", String.valueOf(tes));
+                return true;
+            }
+        });
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);

@@ -28,4 +28,12 @@
 <!--            android:name="myArg"-->
 <!--            app:argType="string" />-->
 <!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/nav_first_aid"
+        android:name="com.umn.imergency.ui.first_aid.FirstAidFragment"
+        android:label="First Aid"
+        tools:layout="@layout/fragment_first_aid">
+
+    </fragment>
 </navigation>
