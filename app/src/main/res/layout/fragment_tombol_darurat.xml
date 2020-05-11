@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.umn.imergency.ui.tombol_darurat.TombolDaruratFragment">
+
+    <LinearLayout
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="6dp"
+            app:cardPreventCornerOverlap="false"
+            android:elevation="4dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_instances1"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_hospital"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_hospital"
+                        android:checked="true"
+                        android:button="@android:color/transparent"/>
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_police"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_police"
+                        android:button="@android:color/transparent"/>
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_damkar"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_damkar"
+                        android:button="@android:color/transparent"/>
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_pharmacy"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_pharmacy"
+                        android:button="@android:color/transparent"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_instances2"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_vet"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_vet"
+                        android:button="@android:color/transparent"/>
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_tow"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_tow"
+                        android:button="@android:color/transparent"/>
+
+                    <RadioButton
+                        android:layout_margin="3dp"
+                        android:id="@+id/radio_spbu"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/selector_radio_spbu"
+                        android:button="@android:color/transparent"/>
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/textview_selected_instance"
+                    android:fontFamily="@style/roboto_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:text="Rumah Sakit"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.gauravbhola.ripplepulsebackground.RipplePulseLayout
+                android:id="@+id/container_ripple_pulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:duration="2200"
+                app:endRadius="170dp"
+                app:rippleColor="#D50000"
+                app:rippleType="fill"
+                app:startRadius="90dp"
+                app:strokeWidth="2dp">
+
+                <Button
+                    android:id="@+id/button_red"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/selector_button_red" />
+
+            </com.gauravbhola.ripplepulsebackground.RipplePulseLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout >
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/logo" />
+        <ImageView
+            android:id="@+id/textview_welcome"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/text_welcome"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/spinner_kode_negara_login"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorAccent"
+                android:entries="@array/kode_negara"
+                android:spinnerMode="dropdown" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:theme="@style/EditTextColorAccent">
+                <EditText
+                    android:id="@+id/edittext_no_handphone"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="No. Handphone"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="@color/colorAccent"
+                    android:backgroundTint="@color/colorAccent"
+                    android:inputType="phone"
+                    android:layout_width="188dp">
+                </EditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorAccent"
+            android:id="@+id/container_password"
+            android:hint="Password"
+            android:theme="@style/EditTextColorAccent">
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:textSize="13dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="310dp"
+                android:inputType="textPassword">
+            </EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_sign_in"
+            android:layout_marginTop="15dp"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:onClick="submitForm"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_button_login" />
+
+        <TextView
+            android:id="@+id/textview_signup"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have account? Signup Now!"
+            android:textColor="@color/colorAccent"/>
+
+    </LinearLayout>
+</LinearLayout>

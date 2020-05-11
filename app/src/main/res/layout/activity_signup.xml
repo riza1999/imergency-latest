@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logoWelcomeScreen"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/textview_welcome"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:src="@drawable/text_welcome" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_corner_red_view">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:textColorHint="@android:color/white"
+                    android:theme="@style/EditTextWhite">
+
+                    <EditText
+                        android:id="@+id/edittext_nama_lengkap"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="Nama Lengkap"
+                        android:inputType="textCapWords"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinner_kodeNegara"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@android:color/white"
+                        android:entries="@array/kode_negara"
+                        android:spinnerMode="dropdown" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="No. Handphone"
+                        android:textColorHint="@android:color/white"
+                        android:theme="@style/EditTextWhite">
+
+                        <EditText
+                            android:id="@+id/edittext_no_handphone"
+                            android:layout_width="188dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:backgroundTint="@android:color/white"
+                            android:inputType="phone"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="13dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/container_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:textColorHint="@android:color/white"
+                    android:theme="@style/EditTextWhite">
+
+                    <EditText
+                        android:id="@+id/edittext_password"
+                        android:layout_width="305dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="@android:color/white"
+                        android:inputType="numberPassword"
+                        android:maxLength="6"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textview_tanggal_lahir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Tanggal Lahir"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/button_set_date"
+                        android:layout_width="125dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/selector_button_set_date" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/laki"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:background="@drawable/selector_radio_male"
+                        android:button="@android:color/transparent"
+                        android:checked="true"
+                        android:text="Laki-Laki"
+                        android:layout_margin="5dp"
+                        android:textColor="@android:color/transparent"
+                        android:textSize="0sp" />
+
+                    <RadioButton
+                        android:id="@+id/perempuan"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/selector_radio_female"
+                        android:button="@android:color/transparent"
+                        android:text="Perempuan"
+                        android:textColor="@android:color/transparent"
+                        android:textSize="0sp" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_golDar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp"
+                        android:text="Golongan Darah" />
+
+                    <Spinner
+                        android:id="@+id/spinner_golDar"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:entries="@array/golongan_darah"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/selector_button_signup"
+            android:onClick="submitForm" />
+
+        <TextView
+            android:id="@+id/textview_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Have Account? Login now"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
+</LinearLayout>
