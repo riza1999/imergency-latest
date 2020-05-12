@@ -10,9 +10,21 @@
             android:title="Tombol Darurat" />
 
         <item
+            android:id="@+id/nav_nomor_penting"
+            android:title="Nomor Penting"
+            android:icon="@drawable/ic_nomorpenting"/>
+
+        <item
             android:id="@+id/nav_first_aid"
-            android:icon="@drawable/logo"
-            android:title="First Aid" />
+            android:checked="false"
+            android:icon="@drawable/ic_firstaid"
+            android:title="Pertolongan Pertama" />
+
+        <item
+            android:id="@+id/nav_article"
+            android:checked="false"
+            android:icon="@drawable/ic_article"
+            android:title="Artikel / Berita"/>
     </group>
 
 </menu>
