@@ -13,8 +13,6 @@ import com.umn.imergency.R;
 public class FirstAidFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tombol_darurat, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_first_aid, container, false);
     }
 }
