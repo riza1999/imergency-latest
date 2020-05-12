@@ -45,6 +45,6 @@
         android:id="@+id/nav_article"
         android:name="com.umn.imergency.ui.article.ArticleFragment"
         android:label="Artikel / Berita"
-        tools:layout="@layout/fragment_artikel" />
+        tools:layout="@layout/fragment_article" />
 
 </navigation>

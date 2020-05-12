@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "467748455671",
+    "firebase_url": "https://imergency-latest.firebaseio.com",
+    "project_id": "imergency-latest",
+    "storage_bucket": "imergency-latest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467748455671:android:33693ddd6501287d9dfff2",
+        "android_client_info": {
+          "package_name": "com.umn.imergency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467748455671-qcdgioaq4ra95qpaavubjrd4v64utl2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWFvJtseEcyBYmMUN33trq-clgB6prmh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467748455671-qcdgioaq4ra95qpaavubjrd4v64utl2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

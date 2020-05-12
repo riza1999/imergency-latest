@@ -13,7 +13,7 @@ import com.umn.imergency.R;
 public class ArticleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_artikel, container, false);
+        View view = inflater.inflate(R.layout.fragment_article, container, false);
 
         return view;
     }

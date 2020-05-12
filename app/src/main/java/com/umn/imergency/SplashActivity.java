@@ -13,12 +13,7 @@ public class SplashActivity extends AppCompatActivity {
     /*
         Shared Preference keys:
         isLogin: boolean = Check if the user is already logged in or not
-     */
-
-    /*
-        Flow:
-        Splash --> Auth --> Main
-        Splash --> Main
+        isFinishPermission: boolean = Check if the user finish the permission challenge
      */
 
     private static int SPLASH_TIME_OUT = 1000;

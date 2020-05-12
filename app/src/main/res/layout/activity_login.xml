@@ -33,13 +33,14 @@
             android:layout_height="wrap_content">
 
             <Spinner
-                android:id="@+id/spinner_kode_negara_login"
+                android:id="@+id/spinner_kode_negara"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorAccent"
                 android:entries="@array/kode_negara"
                 android:spinnerMode="dropdown" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
