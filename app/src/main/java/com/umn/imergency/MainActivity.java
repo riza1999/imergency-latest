@@ -44,23 +44,9 @@ public class MainActivity extends AppCompatActivity {
 //                .setDrawerLayout(drawer)
 //                .build();
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_tombol_darurat, R.id.nav_first_aid)
+                R.id.nav_tombol_darurat, R.id.nav_first_aid, R.id.nav_article, R.id.nav_nomor_penting)
                 .setDrawerLayout(drawer)
                 .build();
-
-        // Gabisa berubah / kepanggil. Udah coba pake implements sama override juga.
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Log.d(">>>", "TES");
-                int id = menuItem.getItemId();
-
-                boolean tes = id == R.id.nav_first_aid;
-
-                Log.d(">>>", String.valueOf(tes));
-                return true;
-            }
-        });
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);

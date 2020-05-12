@@ -32,8 +32,19 @@
     <fragment
         android:id="@+id/nav_first_aid"
         android:name="com.umn.imergency.ui.first_aid.FirstAidFragment"
-        android:label="First Aid"
-        tools:layout="@layout/fragment_first_aid">
+        android:label="Pertolongan Pertama"
+        tools:layout="@layout/fragment_first_aid" />
 
-    </fragment>
+    <fragment
+        android:id="@+id/nav_nomor_penting"
+        android:name="com.umn.imergency.ui.nomor_penting.NomorPentingFragment"
+        android:label="Nomor Penting"
+        tools:layout="@layout/fragment_nomor_penting" />
+
+    <fragment
+        android:id="@+id/nav_article"
+        android:name="com.umn.imergency.ui.article.ArticleFragment"
+        android:label="Artikel / Berita"
+        tools:layout="@layout/fragment_artikel" />
+
 </navigation>
