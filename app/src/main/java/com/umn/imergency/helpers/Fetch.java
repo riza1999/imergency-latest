@@ -24,7 +24,11 @@ import java.util.Map;
 public class Fetch {
     public Fetch(Context context, String method, String URL, @Nullable Map<String, String> request_body, Response.Listener<JSONObject> listener,
                  @Nullable Response.ErrorListener errorListener) {
-        JSONObject request_body_to_send = new JSONObject(request_body);
+        JSONObject request_body_to_send = new JSONObject();
+
+        if (request_body != null) {
+            request_body_to_send = new JSONObject(request_body);
+        }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 resolveNetworkMethod(method),

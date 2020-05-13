@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         textview_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startNewActivity = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(startNewActivity);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
@@ -137,8 +137,8 @@ public class LoginActivity extends AppCompatActivity {
 
             hideProgressBarSignIn();
 
-            Intent startNewActivity = new Intent(context, PermissionCallActivity.class);
-            startActivity(startNewActivity);
+            Intent intent = new Intent(context, PermissionCallActivity.class);
+            startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
         } catch (JSONException e) {

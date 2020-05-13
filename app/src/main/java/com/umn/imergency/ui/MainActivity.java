@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             editor.clear();
             editor.apply();
 
-            Intent startNewActivity = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(startNewActivity);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
             finish();
         }
 
