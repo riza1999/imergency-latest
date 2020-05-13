@@ -10,6 +10,7 @@ export const QUERY_LOGIN = functions.https.onRequest(async (req, res) => {
   const defaultResult: QueryLogin = {
     success: false,
     message: "Nomor telepon atau password salah!",
+    unique_id: "",
     user_info: {},
   };
   let result: QueryLogin = defaultResult;
@@ -35,6 +36,7 @@ export const QUERY_LOGIN = functions.https.onRequest(async (req, res) => {
         result = {
           success: true,
           message: "OK",
+          unique_id: doc.id,
           user_info: doc.data(),
         };
       });

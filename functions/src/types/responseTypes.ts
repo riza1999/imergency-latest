@@ -11,5 +11,6 @@ export type UserInfo = {
 export type QueryLogin = {
     success: boolean,
     message: string,
+    unique_id: string,
     user_info: UserInfo,
 };

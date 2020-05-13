@@ -2,7 +2,9 @@ package com.umn.imergency.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,14 +91,16 @@ public class LoginActivity extends AppCompatActivity {
                                     try {
                                         boolean success = response.getBoolean("success");
                                         String message = response.getString("message");
+                                        String unique_id = response.getString("unique_id");
+                                        JSONObject user_info = response.getJSONObject("user_info");
 
                                         if(success) {
-                                            // TODO: Shared preference and intent
-                                            Log.d(">>>>", "BERHASIL");
+                                            // If success, add user info and change flag in shared pref
+                                            onSuccessLoggedIn(LoginActivity.this, unique_id, user_info);
                                         } else {
                                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                                            hideProgressBarSignIn();
                                         }
-                                        hideProgressBarSignIn();
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -112,6 +116,34 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void onSuccessLoggedIn(Context context, String unique_id, JSONObject user_info) {
+        try {
+            String user_info_full_name = user_info.getString("full_name");
+            String user_info_blood_type = user_info.getString("blood_type");
+            String user_info_gender = user_info.getString("gender");
+            String user_info_phone_number = user_info.getString("phone_number");
+
+            SharedPreferences sharedPreferences = getSharedPreferences("imergency", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(getString(R.string.sp_key_unique_id), unique_id);
+            editor.putBoolean(getString(R.string.sp_key_is_logged_in), true);
+            editor.putString(getString(R.string.sp_key_user_info_full_name), user_info_full_name);
+            editor.putString(getString(R.string.sp_key_user_info_blood_type), user_info_blood_type);
+            editor.putString(getString(R.string.sp_key_user_info_gender), user_info_gender);
+            editor.putString(getString(R.string.sp_key_user_info_phone_number), user_info_phone_number);
+            editor.apply();
+
+            hideProgressBarSignIn();
+
+            Intent startNewActivity = new Intent(context, PermissionCallActivity.class);
+            startActivity(startNewActivity);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            finish();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showProgressBarSignIn() {

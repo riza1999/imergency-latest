@@ -1,5 +1,8 @@
 package com.umn.imergency.ui;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -40,10 +43,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-//                .setDrawerLayout(drawer)
-//                .build();
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_tombol_darurat, R.id.nav_first_aid, R.id.nav_article, R.id.nav_nomor_penting)
                 .setDrawerLayout(drawer)
@@ -59,6 +58,24 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int current_id = item.getItemId();
+
+        if(current_id == R.id.action_logout) {
+            SharedPreferences sharedPreferences = getSharedPreferences("imergency", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
+
+            Intent startNewActivity = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(startNewActivity);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

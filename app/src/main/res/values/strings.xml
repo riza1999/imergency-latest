@@ -9,4 +9,14 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+
+<!--    Shared Preference Keys jangan di Translate -->
+    <string name="sp_key_is_logged_in">is_logged_in</string>
+    <string name="sp_key_is_finish_permission">is_finish_permission</string>
+    <string name="sp_key_user_info_full_name">user_info_full_name</string>
+    <string name="sp_key_user_info_phone_number">user_info_phone_number</string>
+    <string name="sp_key_user_info_gender">user_info_gender</string>
+    <string name="sp_key_user_info_blood_type">user_info_blood_type</string>
+    <string name="sp_key_unique_id">unique_id</string>
+<!--    END of Shared Preference Keys -->
 </resources>

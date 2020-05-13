@@ -20,7 +20,7 @@ public class TombolDaruratFragment extends Fragment {
     private TextView textview_selected_instance;
     private RipplePulseLayout container_ripple_pulse;
 
-    private boolean isChecking;
+    private boolean isChecking = true;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -95,6 +95,13 @@ public class TombolDaruratFragment extends Fragment {
                 isChecking = true;
             }
         });
+        button_red.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: Get current user's location
+            }
+        });
+
         return view;
     }
 

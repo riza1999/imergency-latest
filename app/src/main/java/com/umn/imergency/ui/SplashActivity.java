@@ -2,35 +2,49 @@ package com.umn.imergency.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.umn.imergency.R;
 
 public class SplashActivity extends AppCompatActivity {
     /*
-        Shared Preference keys:
-        isLoggedIn: boolean = Check if the user is already logged in or not
-        isFinishPermission: boolean = Check if the user finish the permission challenge
+        For shared preference keys, see string.xml
      */
-
-    private static int SPLASH_TIME_OUT = 1000;
+    final int SPLASH_TIME_OUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // TO-DO: Check if the user logged in or not
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent startNewActivity = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(startNewActivity);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
+                SharedPreferences sharedPreferences = getSharedPreferences("imergency", Context.MODE_PRIVATE);
+                Boolean is_logged_in = sharedPreferences.getBoolean(getString(R.string.sp_key_is_logged_in), false);
+                Boolean is_finish_permission = sharedPreferences.getBoolean(getString(R.string.sp_key_is_finish_permission), false);
+
+                if(!is_logged_in) {
+                    Intent startNewActivity = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(startNewActivity);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                } else if(!is_finish_permission) {
+                    Intent startNewActivity = new Intent(SplashActivity.this, PermissionCallActivity.class);
+                    startActivity(startNewActivity);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                } else {
+                    Intent startNewActivity = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(startNewActivity);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                }
             }
         }, SPLASH_TIME_OUT);
     }
