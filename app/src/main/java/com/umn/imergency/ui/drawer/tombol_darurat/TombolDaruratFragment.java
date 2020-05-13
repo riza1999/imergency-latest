@@ -1,7 +1,6 @@
-package com.umn.imergency.ui.tombol_darurat;
+package com.umn.imergency.ui.drawer.tombol_darurat;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.gauravbhola.ripplepulsebackground.RipplePulseLayout;
 import com.umn.imergency.R;
-
-import org.w3c.dom.Text;
 
 public class TombolDaruratFragment extends Fragment {
     private Button button_red;

@@ -1,4 +1,4 @@
-package com.umn.imergency.ui.article;
+package com.umn.imergency.ui.drawer.article;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

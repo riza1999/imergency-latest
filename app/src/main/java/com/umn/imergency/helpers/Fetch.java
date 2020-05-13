@@ -18,31 +18,37 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 
 
 public class Fetch {
-    private static String URL = "https://us-central1-imergency-latest.cloudfunctions.net/";
-
-    public Fetch(Context context, String function_name, @Nullable Map<String, String> request_body, Response.Listener<JSONObject> listener,
+    public Fetch(Context context, String method, String URL, @Nullable Map<String, String> request_body, Response.Listener<JSONObject> listener,
                  @Nullable Response.ErrorListener errorListener) {
         JSONObject request_body_to_send = new JSONObject(request_body);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.POST,
-                URL+function_name,
+                resolveNetworkMethod(method),
+                URL,
                 request_body_to_send,
                 listener,
                 errorListener
         );
 
         NetworkSingleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private int resolveNetworkMethod(String method) {
+        switch (method) {
+            case "POST": {
+                return 1;
+            }
+            case "GET": {
+                return 0;
+            }
+            default: {
+                return 99;
+            }
+        }
     }
 }
 

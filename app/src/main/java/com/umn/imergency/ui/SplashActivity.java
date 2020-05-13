@@ -1,18 +1,17 @@
-package com.umn.imergency;
+package com.umn.imergency.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.jaeger.library.StatusBarUtil;
+import com.umn.imergency.R;
 
 public class SplashActivity extends AppCompatActivity {
     /*
         Shared Preference keys:
-        isLogin: boolean = Check if the user is already logged in or not
+        isLoggedIn: boolean = Check if the user is already logged in or not
         isFinishPermission: boolean = Check if the user finish the permission challenge
      */
 

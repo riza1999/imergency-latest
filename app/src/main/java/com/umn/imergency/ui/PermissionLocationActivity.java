@@ -1,4 +1,4 @@
-package com.umn.imergency;
+package com.umn.imergency.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.umn.imergency.R;
 
 public class PermissionLocationActivity extends AppCompatActivity {
 

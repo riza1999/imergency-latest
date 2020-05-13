@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_tombol_darurat"
-        android:name="com.umn.imergency.ui.tombol_darurat.TombolDaruratFragment"
+        android:name="com.umn.imergency.ui.drawer.tombol_darurat.TombolDaruratFragment"
         android:label="Tombol Darurat"
         tools:layout="@layout/fragment_tombol_darurat">
 
@@ -17,7 +17,7 @@
     </fragment>
 <!--    <fragment-->
 <!--        android:id="@+id/nav_home_second"-->
-<!--        android:name="com.umn.imergency.ui.tombol_darurat.HomeSecondFragment"-->
+<!--        android:name="com.umn.imergency.ui.drawer.tombol_darurat.HomeSecondFragment"-->
 <!--        android:label="Hasil"-->
 <!--        tools:layout="@layout/fragment_home_second">-->
 <!--        <action-->
@@ -31,19 +31,19 @@
 
     <fragment
         android:id="@+id/nav_first_aid"
-        android:name="com.umn.imergency.ui.first_aid.FirstAidFragment"
+        android:name="com.umn.imergency.ui.drawer.first_aid.FirstAidFragment"
         android:label="Pertolongan Pertama"
         tools:layout="@layout/fragment_first_aid" />
 
     <fragment
         android:id="@+id/nav_nomor_penting"
-        android:name="com.umn.imergency.ui.nomor_penting.NomorPentingFragment"
+        android:name="com.umn.imergency.ui.drawer.nomor_penting.NomorPentingFragment"
         android:label="Nomor Penting"
         tools:layout="@layout/fragment_nomor_penting" />
 
     <fragment
         android:id="@+id/nav_article"
-        android:name="com.umn.imergency.ui.article.ArticleFragment"
+        android:name="com.umn.imergency.ui.drawer.article.ArticleFragment"
         android:label="Artikel / Berita"
         tools:layout="@layout/fragment_article" />
 

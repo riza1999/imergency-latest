@@ -1,4 +1,4 @@
-package com.umn.imergency.ui.first_aid;
+package com.umn.imergency.ui.drawer.first_aid;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
