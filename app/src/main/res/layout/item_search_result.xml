@@ -14,6 +14,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:foreground="?android:attr/selectableItemBackground"
+        android:focusable="true"
         android:clickable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,6 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Test Address"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 app:layout_constraintBottom_toTopOf="@+id/textview_rating"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,21 +56,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Test Rating"
+                android:layout_marginBottom="5dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textview_address" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/textview_opennow"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@id/textview_rating"-->
-<!--                android:layout_marginLeft="5dp"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:text="Test Open Now"-->
-<!--                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />-->
 
+            <TextView
+                android:id="@+id/textview_open_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_rating"
+                android:text="Open Now: No Info"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_rating"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/button_detail"

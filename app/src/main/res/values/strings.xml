@@ -18,5 +18,6 @@
     <string name="sp_key_user_info_gender">user_info_gender</string>
     <string name="sp_key_user_info_blood_type">user_info_blood_type</string>
     <string name="sp_key_unique_id">unique_id</string>
+    <string name="title_activity_maps">Map</string>
     <!--    END of Shared Preference Keys -->
 </resources>

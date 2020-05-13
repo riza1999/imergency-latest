@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -27,11 +29,17 @@ public class SearchResultActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter_search_result;
     private RecyclerView.LayoutManager layoutmanager_search_result;
 
+    private ProgressBar progressbar_search_result;
+    private TextView textview_no_data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         enableToolbar();
+
+        progressbar_search_result = findViewById(R.id.progressbar_search_result);
+        textview_no_data = findViewById(R.id.textview_no_data);
 
         Intent intent = getIntent();
         String latitude = intent.getStringExtra("latitude");
@@ -53,11 +61,18 @@ public class SearchResultActivity extends AppCompatActivity {
                         try {
                             JSONArray results = response.getJSONArray("results");
 
-                            recyclerview_search_result = findViewById(R.id.recyclerview_search_result);
-                            layoutmanager_search_result = new LinearLayoutManager(SearchResultActivity.this);
-                            recyclerview_search_result.setLayoutManager(layoutmanager_search_result);
-                            adapter_search_result = new SearchResultAdapter(results);
-                            recyclerview_search_result.setAdapter(adapter_search_result);
+                            if(results.length() < 1) {
+                                hideProgressBar();
+                                showNoDataText();
+                            } else {
+                                recyclerview_search_result = findViewById(R.id.recyclerview_search_result);
+                                layoutmanager_search_result = new LinearLayoutManager(SearchResultActivity.this);
+                                recyclerview_search_result.setLayoutManager(layoutmanager_search_result);
+                                adapter_search_result = new SearchResultAdapter(SearchResultActivity.this, results);
+                                recyclerview_search_result.setAdapter(adapter_search_result);
+
+                                hideProgressBar();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -83,5 +98,13 @@ public class SearchResultActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void hideProgressBar() {
+        progressbar_search_result.setVisibility(ProgressBar.GONE);
+    }
+
+    private void showNoDataText() {
+        textview_no_data.setVisibility(TextView.VISIBLE);
     }
 }
