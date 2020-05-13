@@ -1,10 +1,9 @@
-package com.umn.imergency;
+package com.umn.imergency.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.security.Permission;
+import com.umn.imergency.R;
 
 public class PermissionCallActivity extends AppCompatActivity {
     private Button button_request_call_permission, button_next_permission;

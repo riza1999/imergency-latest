@@ -12,12 +12,12 @@
         <item
             android:id="@+id/nav_nomor_penting"
             android:title="Nomor Penting"
-            android:icon="@drawable/ic_nomorpenting"/>
+            android:icon="@drawable/ic_nomor_penting"/>
 
         <item
             android:id="@+id/nav_first_aid"
             android:checked="false"
-            android:icon="@drawable/ic_firstaid"
+            android:icon="@drawable/ic_first_aid"
             android:title="Pertolongan Pertama" />
 
         <item

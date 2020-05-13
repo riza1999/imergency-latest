@@ -33,13 +33,14 @@
             android:layout_height="wrap_content">
 
             <Spinner
-                android:id="@+id/spinner_kode_negara_login"
+                android:id="@+id/spinner_kode_negara"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorAccent"
                 android:entries="@array/kode_negara"
                 android:spinnerMode="dropdown" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,8 +91,14 @@
             android:layout_gravity="center"
             android:background="@drawable/selector_button_login" />
 
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressbar_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <TextView
-            android:id="@+id/textview_signup"
+            android:id="@+id/textview_sign_up"
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
