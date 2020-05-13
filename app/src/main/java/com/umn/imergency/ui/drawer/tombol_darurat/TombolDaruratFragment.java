@@ -1,6 +1,8 @@
 package com.umn.imergency.ui.drawer.tombol_darurat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,10 @@ import androidx.fragment.app.Fragment;
 
 import com.gauravbhola.ripplepulsebackground.RipplePulseLayout;
 import com.umn.imergency.R;
+import com.umn.imergency.helpers.Location;
+import com.umn.imergency.ui.PermissionCallActivity;
+
+import java.util.Map;
 
 public class TombolDaruratFragment extends Fragment {
     private Button button_red;
@@ -21,6 +27,7 @@ public class TombolDaruratFragment extends Fragment {
     private RipplePulseLayout container_ripple_pulse;
 
     private boolean isChecking = true;
+    private String selected_instance = "hospital";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,18 +52,22 @@ public class TombolDaruratFragment extends Fragment {
                     switch(i) {
                         case R.id.radio_hospital: {
                             setSelectedInstanceText("Rumah Sakit");
+                            selected_instance = "hospital";
                             break;
                         }
                         case R.id.radio_police: {
                             setSelectedInstanceText("Polisi");
+                            selected_instance = "police_station";
                             break;
                         }
                         case R.id.radio_damkar: {
                             setSelectedInstanceText("Pemadam Kebakaran");
+                            selected_instance = "fire_station";
                             break;
                         }
                         case R.id.radio_pharmacy: {
                             setSelectedInstanceText("Apotek");
+                            selected_instance = "pharmacy";
                             break;
                         }
                         default: {
@@ -77,14 +88,17 @@ public class TombolDaruratFragment extends Fragment {
                     switch (i) {
                         case R.id.radio_vet: {
                             setSelectedInstanceText("Dokter Hewan");
+                            selected_instance = "veterinary_care";
                             break;
                         }
                         case R.id.radio_tow: {
                             setSelectedInstanceText("Mobil Derek");
+                            selected_instance = "tow_service";
                             break;
                         }
                         case R.id.radio_spbu: {
                             setSelectedInstanceText("SPBU");
+                            selected_instance = "gas_station";
                             break;
                         }
                         default: {
@@ -98,7 +112,21 @@ public class TombolDaruratFragment extends Fragment {
         button_red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Get current user's location
+                new Location(view.getContext()) {
+                    @Override
+                    public void onLocationReceived(Map<String, String> location) {
+                        String latitude = location.get("latitude");
+                        String longitude = location.get("longitude");
+                        String location_query = getLocationQuery();
+
+                        Intent intent = new Intent(getContext(), SearchResultActivity.class);
+                        intent.putExtra("latitude", latitude);
+                        intent.putExtra("longitude", longitude);
+                        intent.putExtra("location_query", location_query);
+                        intent.putExtra("type", selected_instance);
+                        startActivity(intent);
+                    }
+                };
             }
         });
 
@@ -107,5 +135,34 @@ public class TombolDaruratFragment extends Fragment {
 
     private void setSelectedInstanceText(String selectedInstance) {
         textview_selected_instance.setText(selectedInstance);
+    }
+
+    private String getLocationQuery() {
+        switch (selected_instance) {
+            case "hospital": {
+                return "Rumah+sakit+OR+hospital";
+            }
+            case "police_station": {
+                return "kantor+polisi+OR+police+station";
+            }
+            case "fire_station": {
+                return "Pemadam+Kebakaran+OR+fire+station";
+            }
+            case "pharmacy": {
+                return "apotek+OR+pharmacy";
+            }
+            case "veterinary_care": {
+                return "dokter+hewan+OR+vet";
+            }
+            case "tow_service": {
+                return "derek+OR+mobil+derek+OR+Tow+Service";
+            }
+            case "gas_station": {
+                return "pom+bensin+OR+pompa+bensin+OR+gas+station";
+            }
+            default: {
+                return "";
+            }
+        }
     }
 }

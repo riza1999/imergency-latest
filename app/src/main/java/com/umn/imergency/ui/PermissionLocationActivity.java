@@ -77,8 +77,8 @@ public class PermissionLocationActivity extends AppCompatActivity {
                     editor.putBoolean(getString(R.string.sp_key_is_finish_permission), true);
                     editor.apply();
 
-                    Intent startNewActivity = new Intent(PermissionLocationActivity.this, MainActivity.class);
-                    startActivity(startNewActivity);
+                    Intent intent = new Intent(PermissionLocationActivity.this, MainActivity.class);
+                    startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }

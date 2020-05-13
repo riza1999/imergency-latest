@@ -32,8 +32,8 @@ public class SignupActivity extends AppCompatActivity {
         textview_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startNewActivity = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(startNewActivity);
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }

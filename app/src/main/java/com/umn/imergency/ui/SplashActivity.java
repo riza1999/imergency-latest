@@ -30,18 +30,18 @@ public class SplashActivity extends AppCompatActivity {
                 Boolean is_finish_permission = sharedPreferences.getBoolean(getString(R.string.sp_key_is_finish_permission), false);
 
                 if(!is_logged_in) {
-                    Intent startNewActivity = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(startNewActivity);
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 } else if(!is_finish_permission) {
-                    Intent startNewActivity = new Intent(SplashActivity.this, PermissionCallActivity.class);
-                    startActivity(startNewActivity);
+                    Intent intent = new Intent(SplashActivity.this, PermissionCallActivity.class);
+                    startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 } else {
-                    Intent startNewActivity = new Intent(SplashActivity.this, MainActivity.class);
-                    startActivity(startNewActivity);
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }

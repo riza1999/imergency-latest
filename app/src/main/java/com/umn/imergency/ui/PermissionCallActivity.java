@@ -56,8 +56,8 @@ public class PermissionCallActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(ActivityCompat.checkSelfPermission(PermissionCallActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
-                    Intent startNewActivity = new Intent(PermissionCallActivity.this, PermissionLocationActivity.class);
-                    startActivity(startNewActivity);
+                    Intent intent = new Intent(PermissionCallActivity.this, PermissionLocationActivity.class);
+                    startActivity(intent);
                     finish();
                 }
                 else{
