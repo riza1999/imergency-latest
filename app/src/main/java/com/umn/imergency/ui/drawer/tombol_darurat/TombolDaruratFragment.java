@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -119,12 +120,16 @@ public class TombolDaruratFragment extends Fragment {
                         String longitude = location.get("longitude");
                         String location_query = getLocationQuery();
 
-                        Intent intent = new Intent(getContext(), SearchResultActivity.class);
-                        intent.putExtra("latitude", latitude);
-                        intent.putExtra("longitude", longitude);
-                        intent.putExtra("location_query", location_query);
-                        intent.putExtra("type", selected_instance);
-                        startActivity(intent);
+                        if (latitude != null && longitude != null) {
+                            Intent intent = new Intent(getContext(), SearchResultActivity.class);
+                            intent.putExtra("latitude", latitude);
+                            intent.putExtra("longitude", longitude);
+                            intent.putExtra("location_query", location_query);
+                            intent.putExtra("type", selected_instance);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getContext(), "Mohon coba lagi.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 };
             }
