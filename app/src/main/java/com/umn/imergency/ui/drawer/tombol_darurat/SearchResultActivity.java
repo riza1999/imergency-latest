@@ -53,13 +53,14 @@ public class SearchResultActivity extends AppCompatActivity {
     private void fetchNearestLocation(String latitude, String longitude, String type, String location_query) {
         final String URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?type="+type+"&query="+location_query+"&location="
                 +latitude+","+longitude+"&rankby=distance&key=AIzaSyCajKAQf3yPO_kYgFvic6czN0zCwho-Jxs";
-
+        Log.d(">>>>", URL);
         new Fetch(SearchResultActivity.this, "GET", URL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray results = response.getJSONArray("results");
+                            Log.d(">>>>", results.toString());
 
                             if(results.length() < 1) {
                                 hideProgressBar();
