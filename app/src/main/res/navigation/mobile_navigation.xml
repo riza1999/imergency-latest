@@ -42,9 +42,10 @@
         tools:layout="@layout/fragment_nomor_penting" />
 
     <fragment
-        android:id="@+id/nav_article"
-        android:name="com.umn.imergency.ui.drawer.article.ArticleFragment"
-        android:label="Artikel / Berita"
-        tools:layout="@layout/fragment_article" />
+        android:id="@+id/nav_news"
+        android:name="com.umn.imergency.ui.news.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news">
 
+    </fragment>
 </navigation>
