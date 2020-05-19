@@ -47,6 +47,10 @@
             android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.drawer.news.NewsDetail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

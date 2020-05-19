@@ -21,7 +21,7 @@
             android:title="Pertolongan Pertama" />
 
         <item
-            android:id="@+id/nav_article"
+            android:id="@+id/nav_news"
             android:checked="false"
             android:icon="@drawable/ic_article"
             android:title="Artikel / Berita"/>
