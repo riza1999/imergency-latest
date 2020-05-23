@@ -13,6 +13,11 @@ type FirstAidDetailQNA = {
     detail: string;
 }
 
+type FirstAid = {
+    name: string,
+    icon_img: string,
+}
+
 export type QueryLogin = {
     success: boolean,
     message: string,
@@ -20,7 +25,14 @@ export type QueryLogin = {
     user_info: UserInfo,
 };
 
-export type QueryFirstAid = Array<string>;
+export type MutationSignup = {
+    success: boolean,
+    message: string,
+    unique_id: string,
+    user_info: UserInfo
+}
+
+export type QueryFirstAid = Array<FirstAid>;
 
 export type QueryFirstAidDetail =   {
     name: string,
