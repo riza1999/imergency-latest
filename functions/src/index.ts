@@ -56,7 +56,9 @@ export const QUERY_LOGIN = functions.https.onRequest(async (req, res) => {
 });
 
 export const QUERY_FIRST_AID = functions.https.onRequest(async (req, res) => {
-  const defaultResult: QueryFirstAid = [];
+  const defaultResult: QueryFirstAid = {
+    diseases: []
+  };
   let result: QueryFirstAid = defaultResult;
 
   const query = db.collection("/first_aid");
@@ -68,7 +70,7 @@ export const QUERY_FIRST_AID = functions.https.onRequest(async (req, res) => {
         console.log(doc.id, "=>", doc.data());
         let { name, icon_img } = doc.data();
 
-        result.push({ name, icon_img });
+        result.diseases.push({ name, icon_img });
       });
       return;
     })

@@ -32,7 +32,9 @@ export type MutationSignup = {
     user_info: UserInfo
 }
 
-export type QueryFirstAid = Array<FirstAid>;
+export type QueryFirstAid = {
+    diseases: Array<FirstAid>
+};
 
 export type QueryFirstAidDetail =   {
     name: string,
