@@ -143,7 +143,7 @@ export const MUTATION_SIGN_UP = functions.https.onRequest(async (req, res) => {
 
         result = {
           ...defaultResult,
-          success: true,
+          success: false,
           message: "No. Handphone sudah terdaftar!",
         };
 
@@ -171,7 +171,7 @@ export const MUTATION_SIGN_UP = functions.https.onRequest(async (req, res) => {
         result = {
           success: true,
           message: "Berhasil didaftarkan",
-          user_info: req.body,
+          user_info: newData,
           unique_id: doc.id,
         };
       })
