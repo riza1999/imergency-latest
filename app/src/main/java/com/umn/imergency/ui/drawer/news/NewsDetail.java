@@ -1,6 +1,7 @@
 package com.umn.imergency.ui.drawer.news;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +13,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.jaeger.library.StatusBarUtil;
 import com.umn.imergency.R;
+import com.umn.imergency.ui.drawer.first_aid.FirstAidDetailActivity;
 
 public class NewsDetail extends AppCompatActivity {
     WebView webView;
@@ -28,6 +31,7 @@ public class NewsDetail extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        StatusBarUtil.setColor(NewsDetail.this, Color.parseColor("#FF4081"));
 
         Intent intent = getIntent();
         url = intent.getStringExtra("url");

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.umn.imergency.ui.news.NewsDetail">
+    tools:context="com.umn.imergency.ui.drawer.news.NewsDetail">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
