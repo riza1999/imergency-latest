@@ -106,7 +106,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Log.d(">>>>", e.toString());
+                Toast.makeText(PhoneVerificationActivity.this, "Telah terjadi kesalahan", Toast.LENGTH_SHORT).show();
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     Toast.makeText(PhoneVerificationActivity.this, "Error : Invalid Request", Toast.LENGTH_SHORT).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
