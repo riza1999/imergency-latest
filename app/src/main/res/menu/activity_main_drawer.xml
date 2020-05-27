@@ -25,6 +25,20 @@
             android:checked="false"
             android:icon="@drawable/ic_article"
             android:title="Artikel / Berita"/>
+
+        <item android:title="Other">
+            <menu>
+                <!--<item-->
+                <!--android:id="@+id/nav_manage"-->
+                <!--android:icon="@drawable/ic_menu_manage"-->
+                <!--android:title="Settings" />-->
+
+                <item
+                    android:id="@+id/nav_about_us"
+                    android:icon="@drawable/ic_about_us"
+                    android:title="About Us" />
+            </menu>
+        </item>
     </group>
 
 </menu>

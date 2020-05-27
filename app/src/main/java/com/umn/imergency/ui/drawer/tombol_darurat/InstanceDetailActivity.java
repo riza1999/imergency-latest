@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -88,6 +89,7 @@ public class InstanceDetailActivity extends AppCompatActivity implements OnMapRe
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.d(">>>>", response.toString());
                         try {
                             JSONObject result = response.getJSONObject("result");
                             JSONObject geometry = result.getJSONObject("geometry");
@@ -117,7 +119,7 @@ public class InstanceDetailActivity extends AppCompatActivity implements OnMapRe
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
+                        Toast.makeText(InstanceDetailActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

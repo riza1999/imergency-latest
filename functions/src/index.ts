@@ -112,8 +112,6 @@ export const QUERY_FIRST_AID_DETAIL = functions.https.onRequest(
 );
 
 export const MUTATION_SIGN_UP = functions.https.onRequest(async (req, res) => {
-  let alreadyRegistered: Boolean = false;
-
   const defaultResult: MutationSignup = {
     success: false,
     message: "",
@@ -136,11 +134,9 @@ export const MUTATION_SIGN_UP = functions.https.onRequest(async (req, res) => {
   await query
     .where("phone_number", "==", no_handphone)
     .get()
-    .then((snapshot) => {
+    .then(async (snapshot) => {
       // If snapshot is not empty, means the phone number is already exist
       if (!snapshot.empty) {
-        alreadyRegistered = true;
-
         result = {
           ...defaultResult,
           success: false,
@@ -148,36 +144,33 @@ export const MUTATION_SIGN_UP = functions.https.onRequest(async (req, res) => {
         };
 
         res.send(result);
+      } else {
+        const newData = {
+          phone_number: no_handphone,
+          full_name,
+          password,
+          birth_date,
+          gender,
+          blood_type,
+        };
+    
+        await query
+          .add(newData)
+          .then((doc) => {
+            result = {
+              success: true,
+              message: "Berhasil didaftarkan",
+              user_info: newData,
+              unique_id: doc.id,
+            };
+          })
+          .catch((err) => {
+            console.log("Error getting documents", err);
+          });
+        res.send(result);
       }
     })
     .catch((err) => {
       console.log("Error getting documents", err);
     });
-
-  // Else, push!
-  if (!alreadyRegistered) {
-    const newData = {
-      phone_number: no_handphone,
-      full_name,
-      password,
-      birth_date,
-      gender,
-      blood_type,
-    };
-
-    await query
-      .add(newData)
-      .then((doc) => {
-        result = {
-          success: true,
-          message: "Berhasil didaftarkan",
-          user_info: newData,
-          unique_id: doc.id,
-        };
-      })
-      .catch((err) => {
-        console.log("Error getting documents", err);
-      });
-    res.send(result);
-  }
 });
