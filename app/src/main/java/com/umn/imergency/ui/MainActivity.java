@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private TextView textview_current_user_name, textview_current_user_phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +46,23 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_tombol_darurat, R.id.nav_first_aid, R.id.nav_news, R.id.nav_nomor_penting)
+                R.id.nav_tombol_darurat, R.id.nav_first_aid, R.id.nav_news, R.id.nav_nomor_penting, R.id.nav_about_us)
                 .setDrawerLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("imergency", Context.MODE_PRIVATE);
+        String current_user = sharedPreferences.getString(getString(R.string.sp_key_user_info_full_name), "");
+        String current_phone = sharedPreferences.getString(getString(R.string.sp_key_user_info_phone_number), "");
+
+        View headerView = navigationView.getHeaderView(0);
+        textview_current_user_name = headerView.findViewById(R.id.textview_current_user_name);
+        textview_current_user_phone = headerView.findViewById(R.id.textview_current_user_phone);
+        textview_current_user_name.setText(current_user);
+        textview_current_user_phone.setText(current_phone);
     }
 
     @Override

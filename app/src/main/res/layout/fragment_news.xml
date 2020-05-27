@@ -38,7 +38,6 @@
 
     <ListView
         android:id="@+id/listNews"
-        android:layout_below="@+id/divider_article"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
