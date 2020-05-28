@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.umn.imergency.ui.drawer.news.NewsFragment">
 
-<!--        <RelativeLayout-->
-<!--            android:id="@+id/layout_banner"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:background="#cfd8dc">-->
-
-<!--            <ss.com.bannerslider.Slider-->
-<!--                android:id="@+id/banner_slider1"-->
-<!--                android:layout_marginTop="7dp"-->
-<!--                android:layout_marginBottom="7dp"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                app:slider_emptyView="@layout/banner_empty"-->
-<!--                app:slider_loopSlides="true" />-->
-<!--        </RelativeLayout>-->
-
-<!--    <View-->
-<!--        android:id="@+id/divider_article"-->
-<!--        android:layout_below="@id/layout_banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:background="@android:color/darker_gray"/>-->
-
-
     <ListView
         android:id="@+id/listNews"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:divider="#F5F5F5"
         android:dividerHeight="1dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
